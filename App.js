@@ -1,21 +1,16 @@
-import { StatusBar } from 'expo-status-bar';
+//Nazerke Yegemberdi, 20MD0159
+
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack'
+import HomeScreen from './HomeScreen'
+import WeatherDay from './UserDescription'
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+const MainNavigator = createStackNavigator({
+  Home: HomeScreen,
+  WeatherDay: WeatherDay,
 });
+
+const App = createAppContainer(MainNavigator);
+
+export default App;
